@@ -1,5 +1,8 @@
-FROM php:fpm-alpine3.20
+# Use official PHP image with FPM
+FROM php:8.0-fpm
 
-COPY . /app/
+# Install mysqli extension
+RUN docker-php-ext-install mysqli
 
-VOLUME [ "/app" ]
+# Set working directory
+WORKDIR /app

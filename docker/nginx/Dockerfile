@@ -1,4 +1,5 @@
-FROM nginx:mainline-alpine
+# Use official Nginx image
+FROM nginx:latest
 
-COPY . /app/
-COPY ./docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+# Copy custom Nginx configuration
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
