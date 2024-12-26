@@ -1,3 +1,5 @@
-FROM php:7.4.3-fpm-alpine3.11
-COPY . /app
+FROM php:fpm-alpine3.20
+
+COPY . /app/
+
 VOLUME [ "/app" ]
