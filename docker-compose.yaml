@@ -11,9 +11,9 @@ services:
     links:
       - php
 
-php:
-  build:
-    context: .
-    dockerfile: docker/php/Dockerfile
-  volumes:
-    - .:/app/
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
