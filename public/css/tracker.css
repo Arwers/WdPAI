@@ -1,0 +1,80 @@
+.base-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    width: 20vw;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(240,171,0,1) 0%, rgba(255,121,0,1) 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+main {
+    width: 80vw;
+    height: 100%;
+}
+
+nav > img {
+    width: 60%;
+    margin: 2em auto;
+}
+
+a {
+    text-decoration: none;
+
+    display: inline-block;
+    line-height: 2em;
+}
+
+li i {
+    font-size: 1.5em;
+}
+
+.button {
+    border: 3px solid rgba(0, 0, 0, 0.2);
+    border-radius: 1em;
+    margin-left: 1em;
+    text-align: center;
+    letter-spacing: 0.7px;
+    color: black;
+    padding: 0.2em;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none;
+    color: black;
+    font: normal normal normal 20px/27px "Gill Sans", sans-serif;
+    letter-spacing: 0.72px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    width: calc(100% - 40px);
+    position: relative;
+}
+
+li {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+li:last-child {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.fa, .fas {
+    width: 1em;
+}
