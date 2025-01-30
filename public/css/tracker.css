@@ -7,6 +7,8 @@
 
 body {
     margin: 0;
+        font: normal normal normal 20px/27px "Gill Sans", sans-serif;
+    letter-spacing: 0.72px;
 }
 
 nav {
@@ -22,6 +24,7 @@ nav {
 main {
     width: 80vw;
     height: 100%;
+    background: linear-gradient(90deg, rgba(240,171,0,0.9) 0%, rgba(255, 119, 0, 0.9) 100%);
 }
 
 nav > img {
@@ -77,4 +80,84 @@ li:last-child {
 
 .fa, .fas {
     width: 1em;
+}
+
+.monthly-total {
+    margin: 1em 2em;
+    font-size: 1.5em;
+    color: #000000;
+}
+
+.expense-block {
+    background: #FFFFFFE0;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px;
+    padding: 1em;
+    margin: 2em;
+}
+
+.expense-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.expense-form input,
+.expense-form select {
+    width: 100%;
+    background-color: #7c7c7c29;
+    border: none;
+    padding: 1em;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+    box-sizing: border-box;
+}
+
+.expense-form button {
+    margin-top: 1em;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(240,171,0);
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 19px;
+    border: none;
+    color: black;
+    line-height: 2.5em;
+    cursor: pointer;
+}
+
+.expense-form button:hover {
+    opacity: 0.9;
+}
+
+.sort-button {
+    margin-bottom: 1em;
+    background: rgb(240,171,0);
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 19px;
+    border: none;
+    color: black;
+    line-height: 2em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+}
+
+.sort-button:hover {
+    opacity: 0.9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+table th,
+table td {
+    text-align: left;
+    padding: 0.75em;
+    border-bottom: 1px solid #ccc;
 }
