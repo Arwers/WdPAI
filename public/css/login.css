@@ -5,7 +5,6 @@ body {
 .container {
     width: 100vw;
     height: 100vh;
-    /* Use a linear gradient from left (orange) to right (darker orange) */
     background: linear-gradient(90deg, rgba(240,171,0,1) 0%, rgba(255,121,0,1) 100%);
     display: flex;
     flex-direction: row;
@@ -30,7 +29,7 @@ form {
     background: #FFFFFFE0;
     box-shadow: 0px 6px 6px #00000029;
     border-radius: 33px;
-    padding: 2em; /* Add padding to give the form some internal spacing */
+    padding: 2em;
 }
 
 input {
