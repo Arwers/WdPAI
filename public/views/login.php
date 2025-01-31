@@ -11,11 +11,19 @@
         </div>
 
         <div class="login-container">
-            <form>
+            <form action="login" method="POST">
+                <?php if(isset($messages))
+                {
+                  foreach($messages as $message)
+                  {
+                      echo $message;
+                  }
+                }
+                ?>
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
-                <button>login</button>
-                <a href="register.html" class="create-account">Create a new account</a>
+                <button type="submit">login</button>
+                <a href="register.php" class="create-account">Create a new account</a>
             </form>
         </div>
     </div>
