@@ -23,7 +23,7 @@
                 <input name="email" type="text" placeholder="email@email.com">
                 <input name="password" type="password" placeholder="password">
                 <button type="submit">login</button>
-                <a href="register.php" class="create-account">Create a new account</a>
+                <a href="new_account" class="create-account">Create a new account</a>
             </form>
         </div>
     </div>

@@ -11,8 +11,18 @@
         </div>
         
         <div class="login-container">
-            <form>
+            <form action="register" method="POST">
+                <?php if(isset($messages))
+                {
+                    foreach($messages as $message)
+                    {
+                        echo $message;
+                    }
+                }
+                ?>
                 <input name="email" type="email" placeholder="email@example.com" required>
+                <input name="name" type="text" placeholder="name" required>
+                <input name="surname" type="text" placeholder="surname" required>
                 <input name="password" type="password" placeholder="password" required>
                 <input name="repeat_password" type="password" placeholder="repeat password" required>
                 <button>Register</button>
