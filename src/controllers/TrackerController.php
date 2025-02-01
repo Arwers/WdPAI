@@ -26,7 +26,4 @@ class TrackerController extends AppController
             'totalExpenses' => $totalExpenses
         ]);
     }
-
-    // TODO: Add expense
-    // TODO: Validate expense
 }
