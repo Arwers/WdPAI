@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Admin Panel</title>
-    <!-- Reusing login.css for styling -->
     <link rel="stylesheet" type="text/css" href="public/css/login.css">
 </head>
 <body>
@@ -18,7 +17,6 @@
             <input name="name" type="text" placeholder="Name" required>
             <input name="surname" type="text" placeholder="Surname" required>
             <input name="password" type="password" placeholder="Password" required>
-            <!-- Use a select element to choose role -->
             <select name="role" required>
                 <option value="">Select role</option>
                 <option value="admin">Admin</option>

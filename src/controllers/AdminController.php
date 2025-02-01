@@ -25,19 +25,16 @@ class AdminController extends AppController
             return $this->adminPanel();
         }
 
-        // Retrieve form data.
         $email   = $_POST['email'] ?? '';
         $name    = $_POST['name'] ?? '';
         $surname = $_POST['surname'] ?? '';
         $password= $_POST['password'] ?? '';
-        $role    = $_POST['role'] ?? '';  // Role provided by the admin form
+        $role    = $_POST['role'] ?? '';
 
-        // Validate email format.
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return $this->render('admin', ['messages' => ['Invalid email format!']]);
         }
 
-        // Check that all fields are provided.
         if (empty($email) || empty($name) || empty($surname) || empty($password) || empty($role)) {
             return $this->render('admin', ['messages' => ['All fields are required!']]);
         }
@@ -48,14 +45,10 @@ class AdminController extends AppController
             return $this->render('admin', ['messages' => ['Email is already in use!']]);
         }
 
-        // Create a new User object.
-        // Since the user has not been inserted yet, we pass 0 as the id_user.
         $user = new User($email, $password, $name, $surname, 0, $role);
 
         try {
-            // First, insert the user (which should update the $user object's id)
             $userRepository->addUser($user);
-            // Then, assign the role for the newly created user.
             $userRepository->assignRoleByEmail($email, $role);
             $_SESSION['message'] = "User added successfully.";
         } catch (\Exception $e) {

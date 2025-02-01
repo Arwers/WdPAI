@@ -16,7 +16,6 @@ class ApiController extends AppController
     {
         header('Content-Type: application/json');
 
-        // Get the Content-Type header
         $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
 
         $rawInput = file_get_contents('php://input');
@@ -34,7 +33,6 @@ class ApiController extends AppController
             exit;
         }
 
-        // Check if user is logged in
         if (!isset($_SESSION['user']['id_user'])) {
             http_response_code(401);
             echo json_encode(['error' => 'Unauthorized']);
@@ -42,7 +40,6 @@ class ApiController extends AppController
         }
         $userId = $_SESSION['user']['id_user'];
 
-        // Insert expense
         $expenseRepo = new ExpenseRepository();
         $insertResult = $expenseRepo->addExpense($userId, $data['date'], $data['name'], $data['type'], $data['price']);
         if (!$insertResult) {
@@ -51,7 +48,6 @@ class ApiController extends AppController
             exit;
         }
 
-        // Retrieve updated expenses and total
         $trackerRepo = new TrackerRepository();
         $expenses = $trackerRepo->getExpenses();
         $totalExpenses = $trackerRepo->getTotalExpenses();

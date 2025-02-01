@@ -26,7 +26,6 @@ class TrackerRepository extends Repository
         }
         $userId = $_SESSION['user']['id_user'];
 
-        // No date filtering, just sum all expenses for the user
         $sql = "SELECT COALESCE(SUM(price), 0) as total_expenses 
                 FROM expenses 
                 WHERE id_user = :user_id";

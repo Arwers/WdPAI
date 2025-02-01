@@ -84,10 +84,8 @@ class SecurityController extends AppController
 
     public function logout()
     {
-        // Clear all session data
         $_SESSION = [];
 
-        // Optionally, destroy the session cookie if one is used
         if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();
             setcookie(session_name(), '', time() - 42000,
@@ -98,10 +96,7 @@ class SecurityController extends AppController
             );
         }
 
-        // Destroy the session
         session_destroy();
-
-        // Render the login view with a logout confirmation message
         return $this->render('login', ['messages' => ['You have been logged out successfully.']]);
     }
 }

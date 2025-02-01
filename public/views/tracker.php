@@ -31,13 +31,11 @@
     </nav>
     <main>
         <section class="tracker">
-            <!-- Display monthly total from database -->
             <h1 class="monthly-total">
                 Total spent: $<?= isset($totalExpenses) ? number_format($totalExpenses, 2) : "0.00" ?>
             </h1>
 
 
-            <!-- Expense Form (for adding new expenses) -->
             <form class="expense-form expense-block" id="expense-form" method="post" action="addExpense">
                 <label for="date">Date:</label>
                 <input id="date" type="date" name="date" value="<?= date('Y-m-d') ?>" required />
@@ -60,7 +58,6 @@
                 <button type="submit">Add Expense</button>
             </form>
 
-            <!-- Expense List Table -->
             <div class="expense-list expense-block">
                 <table class="table">
                     <thead>

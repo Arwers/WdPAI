@@ -173,22 +173,18 @@ table td {
     table-layout: fixed;
 }
 
-/* Keep the header in place */
+
 .expense-list table thead {
     display: table;
     width: 100%;
 }
 
-/* Make the tbody scrollable.
-   Adjust the max-height so that it shows exactly 4 rows.
-   For example, if one row is about 50px tall then 4 rows ≈ 200px. */
 .expense-list table tbody {
     display: block;
-    max-height: 200px;  /* Adjust this value as needed */
+    max-height: 200px;
     overflow-y: auto;
 }
 
-/* Ensure tbody rows and their cells align correctly with the header */
 .expense-list table tbody tr {
     display: table;
     width: 100%;
@@ -217,15 +213,11 @@ table td {
       display: block;
     }
 
-    /*
-      Use flex-wrap: wrap so if 4+ buttons don’t all fit on a
-      single row, they go onto a second row instead of overflowing.
-    */
     ul {
       width: 100%;
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap; /* allows wrapping */
+      flex-wrap: wrap;
       justify-content: center;
       margin: 0;
       padding: 0;
@@ -233,25 +225,22 @@ table td {
     }
 
     li {
-      flex: 1;                   /* each button shares space equally */
-      margin: 0.3em;             /* small gap around each button */
+      flex: 1;
+      margin: 0.3em;
       position: static !important;
-      min-width: 0;             /* allows shrinking to fit small screens */
-      box-sizing: border-box;    /* so padding/border don't force overflow */
+      min-width: 0;
+      box-sizing: border-box;
     }
 
-    /* Remove any absolute bottom positioning from the last item */
     li:last-child {
       position: static !important;
       bottom: auto !important;
     }
 
-    /* Hide icons on mobile */
     li i {
       display: none !important;
     }
 
-    /* Make the .button fill its entire li */
     .button {
       display: block;
       width: 90%;
@@ -264,48 +253,40 @@ table td {
       height: 100%;
     }
 
-    /*
-      Make the form and table more comfortable for phone users
-      by increasing font sizes and spacing.
-    */
-
-    /* General container size for the .expense-block forms/tables */
     .expense-block {
-      font-size: 1.1em;          /* Slightly larger base font */
-      padding: 1.2em;           /* More padding for easier tap targets */
-      margin: 1em;              /* Slightly reduce margin for small screens */
+      font-size: 1.1em;
+      padding: 1.2em;
+      margin: 1em;
     }
 
-    /* Labels bigger, more readable */
     .expense-form label {
       font-size: 1.2em;
       margin-bottom: 0.5em;
     }
 
-    /* Inputs and selects bigger, with more padding */
     .expense-form input,
     .expense-form select {
       font-size: 1.1em;
       padding: 0.8em;
     }
 
-    /* Buttons (Add Expense, Sort button) bigger text and spacing */
+
     .expense-form button,
     .sort-button {
       font-size: 1.1em;
       padding: 0.8em 1.2em;
     }
 
-    /* Increase table font and spacing */
+
     .expense-list table th,
     .expense-list table td {
       font-size: 1.1em;
-      padding: 0.8em 0.5em; /* a bit more padding for readability */
+      padding: 0.8em 0.5em;
     }
 
     .expense-list table tbody {
         display: block;
-        max-height: 600vh;  /* Adjust this value as needed */
+        max-height: 600vh;
         overflow-y: auto;
     }
 

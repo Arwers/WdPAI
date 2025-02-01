@@ -13,7 +13,6 @@ class TrackerController extends AppController
     private $trackerRepository;
 
     public function __construct() {
-        // No need to call parent::__construct() if AppController doesn't define one
         $this->trackerRepository = new TrackerRepository();
     }
 

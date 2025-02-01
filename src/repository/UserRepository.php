@@ -83,7 +83,6 @@ class UserRepository extends Repository
     {
         $pdo = $this->database->connect();
 
-        // 1. Fetch the user's id using the email.
         $stmt = $pdo->prepare("SELECT id FROM public.user WHERE email = :email LIMIT 1");
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -93,14 +92,12 @@ class UserRepository extends Repository
             throw new \Exception("User with email '$email' not found.");
         }
 
-        // 2. Determine the role: if the provided role is not "admin", default to "client".
         $roleName = strtolower(trim($role));
         if ($roleName !== 'admin') {
             $roleName = 'client';
         }
         error_log("Assigning role: " . $roleName);
 
-        // 3. Retrieve the id_role for the given role name.
         $stmt = $pdo->prepare("
             SELECT id_role 
             FROM public.role 
@@ -118,7 +115,6 @@ class UserRepository extends Repository
 
         error_log("Adding role for user id: " . $userId);
 
-        // 4. Insert into the user_role table.
         $stmt = $pdo->prepare("
             INSERT INTO public.user_role (id_user, id_role)
             VALUES (:id_user, :id_role)
