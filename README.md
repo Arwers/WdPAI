@@ -32,7 +32,7 @@ Regular users can add, view, and track expenses, while administrators have acces
 
 1. **turn on docker container:**
    ```bash
-   docker compose-up -d
+   docker-compose up -d
    ```
 
 2. **Launch website:**
