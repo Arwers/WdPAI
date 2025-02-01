@@ -30,17 +30,25 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password.']]);
         }
 
+        // Store user info in session including role
         $_SESSION['user'] = [
             'email'   => $user->getEmail(),
             'name'    => $user->getName(),
             'surname' => $user->getSurname(),
-            'id_user' => $user->getId()
+            'id_user' => $user->getId(),
+            'role'    => $user->getRole()
         ];
 
-        // Redirect to the tracker route so that TrackerController handles data loading
-        header("Location: /tracker");
-        exit;
+        // Check role from user data and redirect accordingly.
+        if (strtolower($user->getRole()) === 'admin') {
+            header("Location: adminPanel");
+            exit;
+        } else {
+            header("Location: tracker");
+            exit;
+        }
     }
+
 
     public function register()
     {

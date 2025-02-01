@@ -9,7 +9,4 @@ class DefaultController extends AppController {
     public function new_account() {
         $this->render('register');
     }
-    public function tracker() {
-        $this->render('tracker');
-    }
 }

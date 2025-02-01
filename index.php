@@ -14,5 +14,7 @@ Router::post('register', 'SecurityController');
 Router::get('logout', 'SecurityController');
 Router::get('tracker', 'controllers\\TrackerController'); // Fully qualified name
 Router::post('addExpense', 'controllers\\ApiController');
+Router::get('adminPanel', 'controllers\\AdminController');
+Router::post('adminAddUser', 'controllers\\AdminController');
 
 Router::run($path);
