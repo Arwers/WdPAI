@@ -32,8 +32,9 @@
         <section class="tracker">
             <!-- Display monthly total from database -->
             <h1 class="monthly-total">
-                Total spent this month: $<?= isset($totalExpenses) ? number_format($totalExpenses, 2) : "0.00" ?>
+                Total spent: $<?= isset($totalExpenses) ? number_format($totalExpenses, 2) : "0.00" ?>
             </h1>
+
 
             <!-- Expense Form (for adding new expenses) -->
             <form class="expense-form expense-block" method="post" action="addExpense">
