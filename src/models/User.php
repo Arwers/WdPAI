@@ -8,13 +8,15 @@ class User
     private $password;
     private $name;
     private $surname;
+    private $id_user;
 
-    public function __construct(string $email, string $password, string $name, string $surname)
+    public function __construct(string $email, string $password, string $name, string $surname, int $id_user)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
+        $this->id_user = $id_user;
     }
 
     public function getEmail(): string
@@ -55,6 +57,16 @@ class User
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getId(): int
+    {
+        return $this->id_user;
+    }
+
+    public function setId(int $id_user): void
+    {
+        $this->id_user = $id_user;
     }
 
 

@@ -11,7 +11,7 @@ class UserRepository extends Repository
     public function getUser(string $email): ?User
     {
         $sql = "
-        SELECT u.email, u.password, ud.name, ud.surname
+        SELECT u.email, u.password, ud.name, ud.surname, u.id
         FROM public.user u
         JOIN public.user_details ud ON u.id_user_details = ud.id
         WHERE u.email = :email
@@ -32,7 +32,8 @@ class UserRepository extends Repository
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['id']
         );
     }
 
