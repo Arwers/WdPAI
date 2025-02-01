@@ -20,6 +20,8 @@ Regular users can add, view, and track expenses, while administrators have acces
 - **HTML/CSS** – For creating the user interface.
 - **JavaScript (Fetch API)** – For asynchronous communication with the backend (e.g., adding expenses without page reload).
 
+### Database Schema
+![db](docs/schema.png)
 
 ## Setup
 1. **Clone the Repository:**

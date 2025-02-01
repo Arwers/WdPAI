@@ -149,3 +149,35 @@ create trigger trig_check_expense_price
     on public.expenses
     for each row
 execute procedure public.check_expense_price();
+
+INSERT INTO role (role_name) VALUES
+                                 ('admin'),
+                                 ('client');
+
+
+INSERT INTO user_details (name, surname) VALUES
+                                             ('Admin', 'Kowalski'),
+                                             ('Client', 'Nowak');
+
+
+INSERT INTO "user" (id_user_details, email, password) VALUES
+                                                          (1, 'admin@example.com', 'admin123'),
+                                                          (2, 'client@example.com', 'client123');
+
+
+INSERT INTO user_role (id_user, id_role) VALUES
+                                             (1, 1),  -- Kowalski -> admin
+                                             (2, 2);  -- Nowak -> client
+
+
+INSERT INTO types (type_name) VALUES
+                                  ('Groceries'),
+                                  ('House'),
+                                  ('Health'),
+                                  ('Going Out'),
+                                  ('Utilities');
+
+INSERT INTO expenses (id_user, id_type, date, name, price) VALUES
+(2, 1, '2025-01-03', 'Grocery store', 40.00),
+(2, 4, '2025-01-04', 'Dinner out', 80.00),
+(2, 3, '2025-01-05', 'Pharmacy meds', 18.75);
