@@ -50,12 +50,12 @@ li i {
 }
 
 .button {
-    border: 3px solid rgba(0, 0, 0, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.2);
     border-radius: 1em;
     margin-left: 1em;
     text-align: center;
     letter-spacing: 0.7px;
-    color: black;
+    color: #ffffff;
     padding: 0.2em;
     width: 60%;
     background-color: rgba(0, 0, 0, 0.1);
@@ -63,7 +63,7 @@ li i {
 
 ul {
     list-style-type: none;
-    color: black;
+    color: #ffffff;
     font: normal normal normal 20px/27px "Gill Sans", sans-serif;
     letter-spacing: 0.72px;
     height: 100%;

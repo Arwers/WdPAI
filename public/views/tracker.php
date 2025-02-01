@@ -9,7 +9,7 @@
 <body>
 <div class="base-container">
     <nav>
-        <img src="public/img/logo-black.svg" alt="Logo">
+        <img src="public/img/logo.svg" alt="Logo">
         <ul>
             <li>
                 <i class="fa-solid fa-chart-simple"></i>

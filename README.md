@@ -54,12 +54,11 @@ Regular users can add, view, and track expenses, while administrators have acces
 - **Registration form:**  
   ![Registration Form](docs/views/register.png)
 
-- **Finance tracker:**  
-  ![Finance Tracker](docs/views/tracker.png)
-
 - **Admin Panel:**  
   ![Admin Panel](docs/views/admin_panel.png)
 
+- **Finance tracker:**  
+  ![Finance Tracker](docs/views/tracker.png)
 ### Implemented (Mobile view):
 - **Login page:**  
   ![Login Page](docs/views/login_mobile.png)
@@ -67,12 +66,11 @@ Regular users can add, view, and track expenses, while administrators have acces
 - **Registration form:**  
   ![Registration Form](docs/views/register_mobile.png)
 
-- **Finance tracker:**  
-  ![Finance Tracker](docs/views/tracker_mobile.png)
-
 - **Admin Panel:**  
   ![Admin Panel](docs/views/admin_panel_mobile.png)
 
+- **Finance tracker:**  
+  ![Finance Tracker](docs/views/tracker_mobile.png)
 
 ## Status
 #### 🟢 Active
