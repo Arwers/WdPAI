@@ -10,31 +10,33 @@ class UserRepository extends Repository
 {
     public function getUser(string $email): ?User
     {
-        $sql = "
-        SELECT u.email, u.password, ud.name, ud.surname, u.id
-        FROM public.user u
-        JOIN public.user_details ud ON u.id_user_details = ud.id
-        WHERE u.email = :email
-    ";
-
+        $sql = "SELECT u.id, u.email, u.password, 
+                       ud.name, ud.surname,
+                       r.role_name as role
+                FROM \"user\" u
+                JOIN user_details ud ON u.id_user_details = ud.id
+                LEFT JOIN user_role ur ON u.id = ur.id_user
+                LEFT JOIN role r ON ur.id_role = r.id_role
+                WHERE u.email = :email
+                LIMIT 1";
         $stmt = $this->database->connect()->prepare($sql);
-        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, \PDO::PARAM_STR);
         $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            $user = new User(
+                $result['email'],
+                $result['password'],
+                $result['name'],
+                $result['surname'],
+                $result['id'],
+                $result['role'] ?? 'client'
+            );
 
-        if ($user === false) {
-            // TODO: throw an exception or handle error
-            return null;
+            return $user;
         }
-
-        return new User(
-            $user['email'],
-            $user['password'],
-            $user['name'],
-            $user['surname'],
-            $user['id']
-        );
+        return null;
     }
 
     public function addUser(User $user): void
@@ -77,6 +79,52 @@ class UserRepository extends Repository
         }
     }
 
+    public function assignRoleByEmail(string $email, string $role): void
+    {
+        $pdo = $this->database->connect();
 
+        // 1. Fetch the user's id using the email.
+        $stmt = $pdo->prepare("SELECT id FROM public.user WHERE email = :email LIMIT 1");
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $userId = $stmt->fetchColumn();
 
+        if (!$userId) {
+            throw new \Exception("User with email '$email' not found.");
+        }
+
+        // 2. Determine the role: if the provided role is not "admin", default to "client".
+        $roleName = strtolower(trim($role));
+        if ($roleName !== 'admin') {
+            $roleName = 'client';
+        }
+        error_log("Assigning role: " . $roleName);
+
+        // 3. Retrieve the id_role for the given role name.
+        $stmt = $pdo->prepare("
+            SELECT id_role 
+            FROM public.role 
+            WHERE LOWER(role_name) = LOWER(:role_name)
+            LIMIT 1
+        ");
+        $stmt->bindValue(':role_name', $roleName, PDO::PARAM_STR);
+        $stmt->execute();
+        $idRole = $stmt->fetchColumn();
+
+        if (!$idRole) {
+            throw new \Exception("Role '$roleName' not found in the role table.");
+        }
+        error_log("Role id found: " . $idRole);
+
+        error_log("Adding role for user id: " . $userId);
+
+        // 4. Insert into the user_role table.
+        $stmt = $pdo->prepare("
+            INSERT INTO public.user_role (id_user, id_role)
+            VALUES (:id_user, :id_role)
+        ");
+        $stmt->bindValue(':id_user', $userId, PDO::PARAM_INT);
+        $stmt->bindValue(':id_role', $idRole, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

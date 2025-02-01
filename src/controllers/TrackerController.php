@@ -18,6 +18,12 @@ class TrackerController extends AppController
     }
 
     public function tracker() {
+
+        if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+            header("Location: login");
+            exit;
+        }
+
         $expenses = $this->trackerRepository->getExpenses();
         $totalExpenses = $this->trackerRepository->getTotalExpenses();
 
