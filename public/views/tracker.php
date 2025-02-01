@@ -62,8 +62,7 @@
 
             <!-- Expense List Table -->
             <div class="expense-list expense-block">
-                <button class="sort-button" type="button">Sort by Type</button>
-                <table>
+                <table class="table">
                     <thead>
                     <tr>
                         <th>Date</th>

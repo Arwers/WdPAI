@@ -1,3 +1,7 @@
+html,body {
+    overflow:hidden;
+}
+
 .base-container {
     display: flex;
     align-items: center;
@@ -24,6 +28,8 @@ nav {
 main {
     width: 80vw;
     height: 100%;
+    flex: 1;
+    overflow: hidden;
     background: linear-gradient(90deg, rgba(240,171,0,0.9) 0%, rgba(255, 119, 0, 0.9) 100%);
 }
 
@@ -160,6 +166,33 @@ table td {
     text-align: left;
     padding: 0.75em;
     border-bottom: 1px solid #ccc;
+}
+.expense-list table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Keep the header in place */
+.expense-list table thead {
+    display: table;
+    width: 100%;
+}
+
+/* Make the tbody scrollable.
+   Adjust the max-height so that it shows exactly 4 rows.
+   For example, if one row is about 50px tall then 4 rows ≈ 200px. */
+.expense-list table tbody {
+    display: block;
+    max-height: 200px;  /* Adjust this value as needed */
+    overflow-y: auto;
+}
+
+/* Ensure tbody rows and their cells align correctly with the header */
+.expense-list table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 /*@media only screen and (max-device-width: 420px) {*/
