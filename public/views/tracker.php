@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/tracker.css">
+    <script src="public/js/tracker.js" defer></script>
     <script src="https://kit.fontawesome.com/a8e508b44f.js" crossorigin="anonymous"></script>
     <title>Tracker</title>
 </head>
@@ -37,7 +38,7 @@
 
 
             <!-- Expense Form (for adding new expenses) -->
-            <form class="expense-form expense-block" method="post" action="addExpense">
+            <form class="expense-form expense-block" id="expense-form" method="post" action="addExpense">
                 <label for="date">Date:</label>
                 <input id="date" type="date" name="date" value="<?= date('Y-m-d') ?>" required />
 
@@ -71,7 +72,7 @@
                         <th>Price</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="expense-table-body">
                     <?php if (isset($expenses) && count($expenses) > 0): ?>
                         <?php foreach ($expenses as $expense): ?>
                             <tr>

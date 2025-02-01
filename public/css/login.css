@@ -38,7 +38,20 @@ input {
     padding: 1em;
     margin: 1em;
     width: 50%;
+
 }
+
+input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+form.register input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 
 button {
     background: rgb(240,171,0);
@@ -55,6 +68,14 @@ button {
 button:hover {
     opacity: 0.9;
 }
+
+.no-valid {
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
+
 
 @media only screen and (max-device-width: 420px) {
     .container {

@@ -3,15 +3,16 @@
 <head>
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="public/css/login.css">
+    <script type="text/javascript" src="./public/js/script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="logo">
             <img src="public/img/logo.svg" alt="Logo">
         </div>
-        
+
         <div class="login-container">
-            <form action="register" method="POST">
+            <form class="register" action="register" method="POST">
                 <?php if(isset($messages))
                 {
                     foreach($messages as $message)
