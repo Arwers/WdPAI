@@ -24,8 +24,8 @@ Regular users can add, view, and track expenses, while administrators have acces
 ## Setup
 1. **Clone the Repository:**
    ```bash
-   git clone https://your-repository-url.git
-   cd finance-tracker
+   git clone https://github.com/Arwers/WdPAI.git
+   cd WdPAI
    ```
 
 1. **turn on docker container:**
